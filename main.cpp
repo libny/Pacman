@@ -9,30 +9,30 @@ BITMAP *buffer;
 BITMAP *roca;
 BITMAP *pacbmp;
 BITMAP *pacman;
-
+BITMAP *comida;
 int dir =0;
 int px =30*10, py =30*10;
 
 
 char mapa[Maxifilas][Maxcols] = {
      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-	"x          xxxxx            x",
-	"x  xxx  xxxxx  xxxxx  xxx   x",
-	"x  xxx  xxxxx  xxxxx  xxx   x",
-	"x  xxx  xxxxx               x",
-	"x  xxx  xxxxx  xxxxx   xxx  x",
-	"x  xxx         xxxxx   xxx  x",
-	"x  xxxxxxxxx           xxx  x",
-	"x  xxxxxxxxx   xx xx   xxx  x",
-	"x  xxx   xxx   xx  xx  xxx  x",
-	"x  xxx   xxx   xx  xx  xxx  x",
-	"x  xxx   xxx   xx  xx  xxx  x",
-	"x  xxx   xxx       xx       x",
-	"x        xxx   xxxxxx       x",
-	"x  xxx   xxx   xxxxxx  xxx  x",
-    "x  xxx   xxx   xxx          x",
-	"x  xxx   xxx   xxx  xxx  xx x",
-	"x  xxx         xxx          x",                         
+	"x    0  0  xxxxx            x",
+	"x x xx  xxxxx  xxxxx  xxx   x",
+	"x x    xxxxx  xxxxx  xxx   x",
+	"x0xxxx  xxxxx               x",
+	"x x     xxxxx  xxxxx   xxx  x",
+	"x0x xx         xxxxx0 0xxx  x",
+	"x x xxxxxxxx x 0 0 0  xxx  x",
+	"x0  xxxxxxxx x0xx xx   xxx  x",
+	"x xxxx   xxx x xx  xx  xxx  x",
+	"x0  xx x     x0xx  xx  xxx  x",
+	"x x xx   xxx x xx  xx  xxx  x",
+	"x0x xx x xxx x0    xx       x",
+	"x        xxx x xxxxxx       x",
+	"x0xxxx x xxx x0xxxxxx  xxx  x",
+    "x      x xxx x xxx          x",
+	"x0xxxx x xxx x xxx  xxx  xx x",
+	"x  0   0  0 0 0xxx          x",                         
     "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 
 };
@@ -43,6 +43,11 @@ for(row = 0 ;row< Maxifilas ; row++){
     for ( col=0; col< Maxcols; col++){
 		if(mapa[row][col]=='x'){
 			draw_sprite(buffer,roca,col*30,row*30);
+		}
+		if(mapa[row][col]=='0'){
+			draw_sprite(buffer,comida,col*30,row*30);
+			if(py/30 == row && px/30 ==col )
+				mapa[row][col]=' ';
 		}
 	}
 }
@@ -57,6 +62,17 @@ void dibujar_personaje(){
 	draw_sprite(buffer, pacman,px,py);
 }
 
+bool game_over(){
+
+	int row,col;
+
+	for(row = 0 ;row< Maxifilas ; row++){
+		for ( col=0; col< Maxcols; col++){		
+			if(mapa[row][col]=='0') return true;
+		}
+	}
+	return false;
+}
 
 int main()
 {
@@ -72,19 +88,45 @@ int main()
 	roca = load_bitmap("roca.bmp", NULL);
 	pacbmp = load_bitmap("pacman.bmp", NULL);
 	pacman = create_bitmap(33,33);
-
-	while (!key[KEY_ESC]){
+	comida = load_bitmap("comida.bmp",NULL);
+	while (!key[KEY_ESC]  && game_over()){
 		if(key[KEY_RIGHT]) dir = 1;
 		else if (key[KEY_LEFT]) dir = 0;
 		else if(key[KEY_UP]) dir =2;
 		else if(key[KEY_DOWN]) dir =3;
 
 
-		if(dir == 0) px -=30;
-		if(dir == 1) px +=30;
-		if(dir == 2) py -=30;
-		if(dir == 3) py +=30;
+		if(dir == 0){
+			if(mapa[py/30][(px -30)/30] !='x')
+				px -=30;
+			else
+			{
+				dir =4;
+			}
+		}
+		if(dir == 1){ 
+			if(mapa[py/30][(px +30)/30] !='x')
+				px +=30;
+			else
+			{
+				dir =4;
+			}
 
+		}
+		if(dir == 2) {
+			if(mapa[(py-30)/30][px/30] !='x')
+			 py -=30;
+			else	
+			dir =4;
+		}
+		if(dir == 3) {
+			if(mapa[(py+30)/30][px/30] !='x')
+				py +=30;
+			else	
+				dir =4;
+		
+		}
+				
 		clear(buffer);
 
 		dibujar_mapa();

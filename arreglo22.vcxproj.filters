@@ -26,5 +26,8 @@
     <None Include="pacman.bmp">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="Comida.bmp">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>
