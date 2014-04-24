@@ -23,5 +23,8 @@
     <None Include="roca.bmp">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="pacman.bmp">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>
