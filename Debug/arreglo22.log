@@ -1,16 +1,21 @@
-﻿Build started 24/04/2014 0:25:55.
-     1>Project "C:\Libny\Pacman\arreglo22.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+﻿Compilación iniciada a las 4/24/2014 7:18:16 AM.
+     1>Proyecto "C:\Users\T420\Desktop\PacmanElBueno\arreglo22.vcxproj" en el nodo 2 (build destinos).
+     1>InitializeBuildStatus:
+         Se creará "Debug\Pacman.unsuccessfulbuild" porque se especificó "AlwaysCreate".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Libny\Pacman\Debug\Pacman.exe" /INCREMENTAL:NO /NOLOGO alld.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Pacman.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Libny\Pacman\Debug\Pacman.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Libny\Pacman\Debug\Pacman.lib" /MACHINE:X86 Debug\main.obj
-     1>main.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-         arreglo22.vcxproj -> C:\Libny\Pacman\Debug\Pacman.exe
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\T420\Desktop\PacmanElBueno\Debug\Pacman.exe" /INCREMENTAL:NO /NOLOGO alld.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Pacman.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\T420\Desktop\PacmanElBueno\Debug\Pacman.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\T420\Desktop\PacmanElBueno\Debug\Pacman.lib" /MACHINE:X86 Debug\main.obj
+     1>main.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
+         arreglo22.vcxproj -> C:\Users\T420\Desktop\PacmanElBueno\Debug\Pacman.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Libny\Pacman\Debug\Pacman.exe;#1" /manifest Debug\Pacman.exe.intermediate.manifest
-     1>Done Building Project "C:\Libny\Pacman\arreglo22.vcxproj" (Build target(s)).
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\T420\Desktop\PacmanElBueno\Debug\Pacman.exe;#1" /manifest Debug\Pacman.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Se eliminará el archivo "Debug\Pacman.unsuccessfulbuild".
+         Aplicando tarea Touch a "Debug\Pacman.lastbuildstate".
+     1>Compilación del proyecto terminada "C:\Users\T420\Desktop\PacmanElBueno\arreglo22.vcxproj" (build destinos).
 
-Build succeeded.
+Compilación correcta.
 
-Time Elapsed 00:00:01.03
+Tiempo transcurrido 00:00:02.40

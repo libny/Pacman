@@ -29,5 +29,8 @@
     <None Include="Comida.bmp">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="enemigo.bmp">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>

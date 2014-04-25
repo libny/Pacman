@@ -1,7 +1,7 @@
 #define USE_CONSOLE
 #include <allegro.h>
 #include <stdio.h>
-
+#include <cstdlib>
  
 #define  Maxifilas 20
 #define  Maxcols   31
@@ -10,19 +10,22 @@ BITMAP *roca;
 BITMAP *pacbmp;
 BITMAP *pacman;
 BITMAP *comida;
-int dir =0;
+BITMAP *enemigobmp;
+BITMAP *enemigo;
+int dir =0;                       
 int px =30*10, py =30*10;
-
+int fdir=0;
+int _x=30*14, _y=30*14;
 
 char mapa[Maxifilas][Maxcols] = {
      "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 	"x    0  0  xxxxx            x",
-	"x x xx  xxxxx  xxxxx  xxx   x",
-	"x x    xxxxx  xxxxx  xxx   x",
+	"x x xx&  xxxxx  xxxxx  xxx  x",
+	"x x    xxxxx  xxxxx  xxx    x",
 	"x0xxxx  xxxxx               x",
 	"x x     xxxxx  xxxxx   xxx  x",
-	"x0x xx         xxxxx0 0xxx  x",
-	"x x xxxxxxxx x 0 0 0  xxx  x",
+	"x0x xx         &xxxxx0 0xxx x",
+	"x x xxxxxxxx x 0 0 0  xxx   x",
 	"x0  xxxxxxxx x0xx xx   xxx  x",
 	"x xxxx   xxx x xx  xx  xxx  x",
 	"x0  xx x     x0xx  xx  xxx  x",
@@ -74,6 +77,35 @@ bool game_over(){
 	return false;
 }
 
+void dibujar_fantasma(){
+blit(enemigobmp,enemigo,0,0,0,0,30,30);
+	draw_sprite(buffer, enemigo,_x,_y);
+}
+void fantasmas (){
+	dibujar_fantasma();
+	if(mapa[_y/30][_x/30]=='&'){
+		fdir =rand()%4;
+	}
+	if(fdir==0){
+		if(mapa[_y/30][(_x-30)/30]!='x') _x-=30;
+		else fdir=rand()%3;
+	}
+	 if(fdir==1){
+		if(mapa[_y/30][(_x+30)/30]!='x') _x+=30;
+		else fdir=rand()%3;
+	 }
+
+	 if(fdir==2){
+		if(mapa[(_y-30)/30][_x/30]!='x') _y-=30;
+		else fdir=rand()%3;
+	 }
+
+	 if(fdir==3){
+		if(mapa[(_y+30)/30][_x/30]!='x') _y+=30;
+		else fdir=rand()%3;
+	 }
+
+}
 int main()
 {
 	allegro_init();
@@ -89,6 +121,10 @@ int main()
 	pacbmp = load_bitmap("pacman.bmp", NULL);
 	pacman = create_bitmap(33,33);
 	comida = load_bitmap("comida.bmp",NULL);
+	enemigo =create_bitmap(30,30);
+	enemigobmp = load_bitmap("enemigo.bmp",NULL);
+	
+	
 	while (!key[KEY_ESC]  && game_over()){
 		if(key[KEY_RIGHT]) dir = 1;
 		else if (key[KEY_LEFT]) dir = 0;
@@ -111,7 +147,7 @@ int main()
 			{
 				dir =4;
 			}
-
+			
 		}
 		if(dir == 2) {
 			if(mapa[(py-30)/30][px/30] !='x')
@@ -127,10 +163,11 @@ int main()
 		
 		}
 				
-		clear(buffer);
+		clear(buffer);              
 
 		dibujar_mapa();
 		dibujar_personaje();
+		fantasmas();
 		pantalla();
 		rest(70);
 

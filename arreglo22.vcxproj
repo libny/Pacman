@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Comida.bmp" />
+    <None Include="enemigo.bmp" />
     <None Include="pacman.bmp" />
     <None Include="roca.bmp" />
   </ItemGroup>
