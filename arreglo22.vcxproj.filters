@@ -32,5 +32,29 @@
     <None Include="enemigo.bmp">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="pacman_beginning.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_chomp.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_death.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_eatfruit.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_eatghost.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_extrapac.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="pacman_intermission.wav">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="muerte.bmp">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>

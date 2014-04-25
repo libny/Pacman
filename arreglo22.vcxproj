@@ -85,7 +85,15 @@
   <ItemGroup>
     <None Include="Comida.bmp" />
     <None Include="enemigo.bmp" />
+    <None Include="muerte.bmp" />
     <None Include="pacman.bmp" />
+    <None Include="pacman_beginning.wav" />
+    <None Include="pacman_chomp.wav" />
+    <None Include="pacman_death.wav" />
+    <None Include="pacman_eatfruit.wav" />
+    <None Include="pacman_eatghost.wav" />
+    <None Include="pacman_extrapac.wav" />
+    <None Include="pacman_intermission.wav" />
     <None Include="roca.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
